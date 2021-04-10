@@ -4,29 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
 import { Drizzle } from "@drizzle/store";
-import { DrizzleContext } from "@drizzle/react-plugin";
 import MyStringStore from "./contracts/MyStringStore.json";
-// import { DrizzleContext } from "drizzle-react";
-
-
-let options = {
+import { DrizzleContext } from '@drizzle/react-plugin'; 
+const options = {
   contracts: [MyStringStore],
   web3: {
     fallback: {
       type: "ws",
-      url: "ws://127.0.0.1:8545",
+      url: "ws://127.0.0.1:7545",
     },
   },
 };
 
- const drizzle = new Drizzle(options);
+// setup drizzle
+const drizzle = new Drizzle(options);
 
-console.log(drizzle)
 ReactDOM.render(
   <React.StrictMode>
     <DrizzleContext.Provider drizzle={drizzle}>
-      <App />
+        <App />
     </DrizzleContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')

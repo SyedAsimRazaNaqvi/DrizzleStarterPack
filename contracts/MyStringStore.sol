@@ -1,10 +1,9 @@
 pragma solidity ^0.6.0;
 
-contract MyStringStore{
+contract MyStringStore {
+  string public myString = "Hello World";
 
-    string public myString = "Hello World";
-
-    function set(string memory x) public {
-        myString = x;
-    }
+  function set(string memory x) public {
+    myString = x;
+  }
 }
